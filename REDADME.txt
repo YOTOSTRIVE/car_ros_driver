@@ -1,0 +1,46 @@
+
+启动连接机器人节点 ip在connect_robot.cpp设置：rosrun jaka_ros_driver connect_robot  
+启动move_joint_with_traject节点：rosrun jaka_ros_driver move_joint_with_trajec  
+启动movit_config demo.launch   rosluanch movit_config demo.launch
+启动服务端：server_test2   rosrun server_test server_test2
+启动arm_controllor节点：对机械臂控制并发布数据给服务端
+控制速度在connect——robot   1,4 ===弧度每秒
+
+rosrun jaka_ros_driver connect_robot 
+rosrun jaka_ros_driver move_joint_with_trajec
+rosrun server_test server_test2
+
+暑假实习完成任务：
+1.jaka_jog_panel功能包：ui界面添加机械臂指定位姿移动；
+			 连接指定ip，接受其数据移动；
+			 打开文件后读取文件数据移动；
+	启动：rosrun jaka_jog_panel jakajogpanel
+2.jaka_ros_driver功能包中：机械臂接受/trajectory/points消息并移动
+	启动：rosrun jaka_ros_driver move_joint_with_trajec
+3.moveit_config功能包：规划组节点，规划机械臂的路点，接受机械臂的状态并显示在rviz中。
+	启动：rosluanch moveit_config demo.launch
+4.server_test功能包：作为服务端接受moveit传来的路点，并发布/trajectory/points消息
+	启动：rosrun server_test server_test2
+5.test_moveit功能包：小车控制节点,启动连接设备连接小车；
+		     接受geometry_msgs::Twist类型的控制，实现前进，后退，停止，转弯控制和机械臂的移动；
+		     同时另一个线程接受小车的数据，发布小车的位姿，速度。
+	启动：rosrun test_moveit arm_controllor
+6.将代码转移到小车电脑中
+所有代码在gitee:   https://gitee.com/gyqqa/jaka_moveit.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
